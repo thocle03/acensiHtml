@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulaire - Offre 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #cce7ff, #fef9f8);
+      padding: 2rem;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 2px solid #0077cc;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #0077cc;">Inscription HR Summer Camp</h1>
+    <form action="https://formspree.io/f/1" method="POST" style="max-width: 600px; margin: auto; padding: 2rem;">
+      
+      <label>Nom:</label>
+      <input type="text" name="Nom" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Prénom:</label>
+      <input type="text" name="Prénom" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Email:</label>
+      <input type="email" name="Email" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Téléphone:</label>
+      <input type="tel" name="Téléphone" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Formule :</label>
+      <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+        <label class="choice-button" data-formule="atelier" style="flex:1; border: 2px solid #0077cc; padding: 1rem; text-align: center; cursor: pointer;">
+          <input type="radio" name="Formule" value="1 atelier - 80€" required style="display: none;">
+          1 atelier - 80€
+        </label>
+        <label class="choice-button" data-formule="jour" style="flex:1; border: 2px solid #0077cc; padding: 1rem; text-align: center; cursor: pointer;">
+          <input type="radio" name="Formule" value="1 jour - 200€" style="display: none;">
+          1 jour - 200€
+        </label>
+        <label class="choice-button" data-formule="trois-jours" style="flex:1; border: 2px solid #0077cc; padding: 1rem; text-align: center; cursor: pointer;">
+          <input type="radio" name="Formule" value="3 jours - 500€" style="display: none;">
+          3 jours - 500€
+        </label>
+      </div>
+  
+      <div id="selection-jour" style="display: none; margin-bottom: 1rem;">
+        <label>Choisissez un jour :</label>
+        <select id="jour-choisi" name="Jour choisi" style="width:100%;">
+          <option value="">-- Sélectionnez --</option>
+          <option value="07-juil">Lundi 7 juillet</option>
+          <option value="08-juil">Mardi 8 juillet</option>
+          <option value="09-juil">Mercredi 9 juillet</option>
+        </select>
+      </div>
+  
+      <div id="selection-atelier" style="display: none; margin-bottom: 1rem;">
+        <label>Choisissez un atelier :</label>
+        <select name="Atelier" id="atelier-select" style="width:100%;">
+          <option value="">-- Sélectionnez un jour d'abord --</option>
+        </select>
+      </div>
+  
+      <div id="programme-complet" style="display: none; border: 1px solid #ccc; padding: 1rem; background: #f9f9f9;">
+        <h3>Programme complet</h3>
+        <ul>
+          <li><strong>7 juillet :</strong> Rémunération, RH stratège, IA RH, Dialogue Social, RH 2030</li>
+          <li><strong>8 juillet :</strong> Recrutement, QVT, Soft Skills, Data RH</li>
+          <li><strong>9 juillet :</strong> Droit du travail, Formation, Organisation apprenante, Process Comedy</li>
+        </ul>
+      </div>
+  
+      <br>
+      <input type="submit" value="Envoyer" style="background-color:#0077cc; color:white; border:none; padding:1rem 2rem; cursor:pointer; border-radius:8px;">
+    </form>
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const form = document.querySelector('form');
+          const buttons = document.querySelectorAll('.choice-button');
+          const jourDiv = document.getElementById('selection-jour');
+          const atelierDiv = document.getElementById('selection-atelier');
+          const programmeDiv = document.getElementById('programme-complet');
+          const atelierSelect = document.getElementById('atelier-select');
+          const jourChoisi = document.getElementById('jour-choisi');
+      
+          const ateliersParJour = {
+            "07-juil": [
+              "Sandrine Dorbes - Transparence des salaires",
+              "Charlotte Bertrand - Optimiser le partage de la valeur",
+              "Julie Teillet - Posture RH et changement",
+              "Noemie Aubron - RH en 2030",
+              "Perrine Soulier - Créer un chatbot RH",
+              "Soazig Sarazain - IA et Dialogue Social"
+            ],
+            "08-juil": [
+              "Anne Brochard - Le recrutement : pire que Tinder ?",
+              "Richard Lavergne - Le RH est-il un psy ?",
+              "Lobna Calleja - Indicateurs RH",
+              "Ophélie Ayouaz - Gérer son temps",
+              "Mehdi Mangal - Posture RH"
+            ],
+            "09-juil": [
+              "Sabrina Dougados - Financement du plan de compétences",
+              "Jacques de Tonquedec - IA au travail",
+              "Clément Lemainque - Symétrie des attentions",
+              "Céline Cussac - Organisation apprenante",
+              "Process Comedy"
+            ]
+          };
+      
+          buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+              buttons.forEach(b => {
+                b.style.backgroundColor = '';
+                b.style.color = '';
+              });
+              btn.style.backgroundColor = '#0077cc';
+              btn.style.color = 'white';
+              btn.querySelector('input').checked = true;
+      
+              const choix = btn.dataset.formule;
+              jourDiv.style.display = (choix === 'jour' || choix === 'atelier') ? 'block' : 'none';
+              atelierDiv.style.display = (choix === 'atelier') ? 'block' : 'none';
+              programmeDiv.style.display = (choix === 'trois-jours') ? 'block' : 'none';
+      
+              if (choix !== 'atelier') {
+                atelierSelect.innerHTML = '<option value="">-- Sélectionnez un jour d\'abord --</option>';
+              }
+            });
+          });
+      
+          jourChoisi.addEventListener('change', () => {
+            const jour = jourChoisi.value;
+            atelierSelect.innerHTML = '<option value="">-- Choisissez un atelier --</option>';
+            if (jour && ateliersParJour[jour]) {
+              ateliersParJour[jour].forEach(a => {
+                const option = document.createElement('option');
+                option.value = a;
+                option.textContent = a;
+                atelierSelect.appendChild(option);
+              });
+            }
+          });
+      
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+      
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+              data[key] = value;
+            });
+      
+            try {
+              const response = await fetch(this.action, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              });
+      
+              if (response.ok) {
+                alert('Formulaire envoyé avec succès !');
+                this.reset();
+                buttons.forEach(b => {
+                  b.style.backgroundColor = '';
+                  b.style.color = '';
+                });
+                jourDiv.style.display = 'none';
+                atelierDiv.style.display = 'none';
+                programmeDiv.style.display = 'none';
+              } else {
+                alert('Une erreur est survenue. Veuillez réessayer.');
+              }
+            } catch (error) {
+              alert('Erreur de connexion. Veuillez réessayer plus tard.');
+            }
+          });
+        });
+      </script>
+      
+  </body>
+  
+</html>

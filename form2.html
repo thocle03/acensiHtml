@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulaire - Offre 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #cce7ff, #fef9f8);
+      padding: 2rem;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 2px solid #0077cc;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #0077cc;">Inscription HR Summer Camp</h1>
+    <form action="mailto:thomas.clerc@ecole-hexagone.com" method="POST" enctype="text/plain" style="max-width: 600px; margin: auto; padding: 2rem;">
+      <label>Nom:</label>
+      <input type="text" name="Nom" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Prénom:</label>
+      <input type="text" name="Prénom" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Email:</label>
+      <input type="email" name="Email" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Téléphone:</label>
+      <input type="tel" name="Téléphone" required style="width:100%; margin-bottom: 1rem;"><br>
+  
+      <label>Formule :</label><br>
+      <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+        <label class="choice-button" style="flex:1; border: 2px solid #0077cc; padding: 1rem; text-align: center; cursor: pointer;">
+          <input type="radio" name="Formule" value="1 atelier - 80€" required style="display: none;">
+          1 atelier - 80€
+        </label>
+        <label class="choice-button" style="flex:1; border: 2px solid #0077cc; padding: 1rem; text-align: center; cursor: pointer;">
+          <input type="radio" name="Formule" value="1 jour - 200€" style="display: none;">
+          1 jour - 200€
+        </label>
+        <label class="choice-button" style="flex:1; border: 2px solid #0077cc; padding: 1rem; text-align: center; cursor: pointer;">
+          <input type="radio" name="Formule" value="3 jours - 500€" style="display: none;">
+          3 jours - 500€
+        </label>
+      </div>
+  
+      <label>Jour(s) choisi(s) :</label><br>
+      <input type="checkbox" name="Jours" value="Lundi 7 juillet"> Lundi 7 juillet<br>
+      <input type="checkbox" name="Jours" value="Mardi 8 juillet"> Mardi 8 juillet<br>
+      <input type="checkbox" name="Jours" value="Mercredi 9 juillet"> Mercredi 9 juillet<br><br>
+  
+      <label>Atelier(s) souhaité(s) :</label><br>
+      <textarea name="Ateliers" rows="5" style="width:100%;" placeholder="Indiquez les ateliers choisis selon le programme."></textarea><br><br>
+  
+      <input type="submit" value="Envoyer" style="background-color:#0077cc; color:white; border:none; padding:1rem 2rem; cursor:pointer; border-radius:8px;">
+    </form>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.choice-button');
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            buttons.forEach(b => b.style.backgroundColor = '');
+            button.style.backgroundColor = '#0077cc';
+            button.style.color = 'white';
+            const input = button.querySelector('input');
+            if (input) input.checked = true;
+          });
+        });
+      });
+    </script>
+  </body>
+  
+</html>

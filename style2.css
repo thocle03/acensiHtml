@@ -1,0 +1,209 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #b2e3f9 0%, #ffffff 100%);
+    color: #1a1a1a;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background: none;
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .save {
+    color: #ff2d7a;
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hr {
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #333;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .summer {
+    color: #ff2d7a;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .camp {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 3rem;
+    text-shadow: 2px 2px 0 #4e5ed3;
+  }
+  
+  .date,
+  .lieu {
+    font-size: 1.2rem;
+    color: #004b7c;
+    margin: 0.3rem;
+    font-weight: 600;
+  }
+  
+  .logos {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .logos img {
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .intro {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: #1a3c60;
+  }
+  
+  .highlight-box {
+    background: #f0faff;
+    border-left: 6px solid #4e5ed3;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: left;
+  }
+  
+  .highlight-box ul {
+    margin-left: 1rem;
+    padding-left: 1rem;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 3rem;
+    color: #4e5ed3;
+  }
+  
+  .offer-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .offer {
+    background: #ffffff;
+    border: 2px solid #4e5ed3;
+    border-radius: 12px;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+    color: #4e5ed3;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .offer:hover {
+    background: linear-gradient(135deg, #5c6ac4, #4e5ed3);
+    color: white;
+    transform: translateY(-4px);
+  }
+  
+  .price {
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-top: 0.3rem;
+  }
+  .programme {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    text-align: left;
+  }
+  
+  .programme .day {
+    margin-bottom: 2.5rem;
+  }
+  
+  .programme h3 {
+    color: #4e5ed3;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .programme ul {
+    list-style: none;
+    padding-left: 1rem;
+  }
+  
+  .programme li {
+    padding: 0.4rem 0;
+    border-left: 4px solid #4e5ed3;
+    padding-left: 0.8rem;
+    background: #f9f9f9;
+    margin-bottom: 0.3rem;
+    border-radius: 4px;
+  }
+  
+  .intervenants {
+    margin-top: 4rem;
+    text-align: center;
+  }
+  
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .intervenant {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    width: 180px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  
+  .intervenant img {
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+    margin-bottom: 0.8rem;
+  }
+  
+  .nom {
+    font-weight: 600;
+    color: #1a3c60;
+  }
+  
+  .profession {
+    font-size: 0.9rem;
+    color: #4e5ed3;
+  }
+  
